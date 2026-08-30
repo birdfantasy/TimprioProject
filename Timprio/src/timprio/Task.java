@@ -57,9 +57,4 @@ public class Task {
     public String toString() {
         return this.getPriority() + "\t\t" + this.getName() + "\t\t" + this.getTime() +"''";
     }
-    
-    
-    public static void main(String[] args) {
-
-    }
 }
