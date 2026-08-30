@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package timprio;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 /**
@@ -66,6 +70,58 @@ public class TaskManager {
             
             i++; 
             
+        }
+    }
+    
+    public void saveToFile(String fileName) {
+
+    try {
+        PrintWriter writer = new PrintWriter(new FileWriter(fileName));
+
+        for (Task task : tasks) {
+            writer.println(task.getName() + "," +
+                           task.getTime() + "," +
+                           task.getPriority());
+        }
+
+        writer.close();
+
+        System.out.println("Tasks saved successfully.");
+
+    } catch (IOException e) {
+        System.out.println("Error saving file.");
+    }
+}
+    public void loadFromFile(String fileName) {
+
+        tasks.clear();
+
+        try {
+
+            Scanner fileScanner = new Scanner(new File(fileName));
+
+            while (fileScanner.hasNextLine()) {
+
+                String line = fileScanner.nextLine();
+
+                String[] data = line.split(",");
+
+                String name = data[0];
+                int time = Integer.parseInt(data[1]);
+                char priority = data[2].charAt(0);
+
+                Task task = new Task(name, time, priority);
+
+                tasks.add(task);
+            }
+
+            fileScanner.close();
+
+            System.out.println("Tasks loaded successfully.");
+
+        } catch (IOException e) {
+
+            System.out.println("Error loading file.");
         }
     }
     

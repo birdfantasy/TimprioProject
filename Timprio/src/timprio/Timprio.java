@@ -16,7 +16,6 @@ public class Timprio {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         
         Scanner scan = new Scanner(System.in);
         TaskManager t = new TaskManager();
@@ -28,8 +27,8 @@ public class Timprio {
         t.addTask(new Task("writing", 20, 'C'));
         
         
-        
-        
+        //THIS COULD BE TURNED INTO A SEPARATE METHOD
+        System.out.println();
         System.out.println("~~~ TIMPRIO ~~~");
         System.out.println("1. I want to add a task");
         System.out.println("2. I have completed a task");
@@ -38,10 +37,12 @@ public class Timprio {
         System.out.println("5. Sort my tasks by time");
         System.out.println("6. SAVE \t 7. EXIT");
         
+        
+        //THIS COULD BE IT'S OWN METHOD TOO?
         System.out.println("Your Input: ");
         input = scan.nextInt();
         
-        switch (input) {
+        switch (input) { //ALL OF THESE COULD BE THEIR OWN METHODS
             case 1: // ADD A TASK
                 
                 String name;
@@ -66,6 +67,7 @@ public class Timprio {
                 t.addTask(new Task(name, tim, prio));
                 
                 t.displayTasks();
+                System.out.println("");
                 break;
                 
                 
@@ -85,11 +87,20 @@ public class Timprio {
                 //removeTask(index);
                 t.removeTask(remove);
                 t.displayTasks();
+                System.out.println("");
                 break;
                 
                 
             case 3: //VIEWING THE TASKS
+                
+                // Load tasks from the file
+                t.loadFromFile("tasks.txt");
+
+                System.out.println("Tasks loaded from file:");
+
+                // Display the loaded tasks
                 t.displayTasks();
+                
                 break;
                 
                 
@@ -137,6 +148,9 @@ public class Timprio {
                 
             case 6: //save to file
                 //save method
+                t.saveToFile("tasks.txt");
+        
+                System.out.println("Tasks have been saved.\n");
                 break;
             
         } while (input!=7);
