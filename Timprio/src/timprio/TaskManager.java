@@ -22,6 +22,7 @@ public class TaskManager {
         tasks.add(task);
     }
     
+    
     //sort by priority
     public void sortPriority(boolean order) {
         if (order) {
@@ -40,6 +41,7 @@ public class TaskManager {
         }
     }
     
+    
     //showing tasks
     public void displayTasks() {
         System.out.println("Priority: \tTask:\t\tEstimated Time:");
@@ -48,8 +50,8 @@ public class TaskManager {
         }
     }
     
-    public void displayTaskindex() {
-        System.out.println("Index\tTask:");
+    public void displayTaskIndex() {
+        //System.out.println("Index\tTask:");
         int i=0;
         for (Task task : tasks) {
             System.out.println(i+". " + task.getName());
@@ -62,7 +64,6 @@ public class TaskManager {
     public void removeTask(int index) {
         int i=0;
         for (Task task : tasks) {
-            //System.out.println(i+". " + task.getName());
             
             if (i==index) {
                 tasks.remove(i);
@@ -73,26 +74,27 @@ public class TaskManager {
         }
     }
     
-    public void saveToFile(String fileName) {
+    //FILE I/O
+    public void saveToFile(String fileName) { // File input
 
-    try {
-        PrintWriter writer = new PrintWriter(new FileWriter(fileName));
+        try {
+            PrintWriter writer = new PrintWriter(new FileWriter(fileName));
 
-        for (Task task : tasks) {
-            writer.println(task.getName() + "," +
-                           task.getTime() + "," +
-                           task.getPriority());
+            for (Task task : tasks) {
+                writer.println(task.getName() + "," +
+                               task.getTime() + "," +
+                               task.getPriority());
+            }
+
+            writer.close();
+
+            System.out.println("Tasks saved successfully.");
+
+        } catch (IOException e) {
+            System.out.println("Error saving file.");
         }
-
-        writer.close();
-
-        System.out.println("Tasks saved successfully.");
-
-    } catch (IOException e) {
-        System.out.println("Error saving file.");
     }
-}
-    public void loadFromFile(String fileName) {
+    public void loadFromFile(String fileName) { // File output
 
         tasks.clear();
 

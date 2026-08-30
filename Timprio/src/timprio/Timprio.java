@@ -21,12 +21,14 @@ public class Timprio {
         TaskManager t = new TaskManager();
         int input;
         
+        /*
         //TESTING TASKS
         t.addTask(new Task("make tasks input/output on a txt.file", 40, 'A'));
         t.addTask(new Task("make a removeTask() function", 120 , 'B'));
         t.addTask(new Task("writing", 20, 'C'));
+        */
         
-        
+        //t.saveToFile("tasks.txt");
         //THIS COULD BE TURNED INTO A SEPARATE METHOD
         System.out.println();
         System.out.println("~~~ TIMPRIO ~~~");
@@ -75,7 +77,7 @@ public class Timprio {
                 
                 int remove;
                 
-                t.displayTaskindex();
+                t.displayTaskIndex();
                 
                 //ask for desired index to remove
                 System.out.println("What task would you like to remove?\ninput Index");

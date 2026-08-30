@@ -1,3 +1,0 @@
-make tasks input/output on a txt.file,40,A
-make a removeTask() function,120,B
-writing,20,C
