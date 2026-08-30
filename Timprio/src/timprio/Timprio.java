@@ -18,8 +18,6 @@ public class Timprio {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        //utwfe7wat 8o
-        
         Scanner scan = new Scanner(System.in);
         TaskManager t = new TaskManager();
         int input;
