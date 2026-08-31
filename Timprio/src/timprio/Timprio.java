@@ -12,6 +12,7 @@ import java.util.Scanner;
  */
 public class Timprio {
 
+    
     /**
      * @param args the command line arguments
      */
@@ -28,47 +29,19 @@ public class Timprio {
         t.addTask(new Task("writing", 20, 'C'));
         */
         
-        //t.saveToFile("tasks.txt");
-        //THIS COULD BE TURNED INTO A SEPARATE METHOD
-        System.out.println();
-        System.out.println("~~~ TIMPRIO ~~~");
-        System.out.println("1. I want to add a task");
-        System.out.println("2. I have completed a task");
-        System.out.println("3. View my tasks");
-        System.out.println("4. Sort my tasks by priority");
-        System.out.println("5. Sort my tasks by time");
-        System.out.println("6. SAVE \t 7. EXIT");
+
+        displayMenu();
         
         
-        //THIS COULD BE IT'S OWN METHOD TOO?
-        System.out.println("Your Input: ");
-        input = scan.nextInt();
+        input = getInput();
         
         switch (input) { //ALL OF THESE COULD BE THEIR OWN METHODS
             case 1: // ADD A TASK
                 
-                String name;
-                int tim;
-                char prio;
-                
-                // input a name of task
-                System.out.println("What is your task? \nYour input: ");
-                name = scan.nextLine();
-                scan.nextLine();
-                
-                //input time expect
-                System.out.println("How many minutes do you estimate that it will take you?\nYour input: ");
-                tim = scan.nextInt();
-                scan.nextLine();
-                                
-                //input priority A is hightest-C is lowest
-                System.out.println("From A being the hightest, to C the lowest, what is the level of priority of this task?\nYour input: ");
-                prio = scan.nextLine().charAt(0);
-                
                 //making the task
-                t.addTask(new Task(name, tim, prio));
+                Task task = input.createTask();
+                t.addTask(task);
                 
-                t.displayTasks();
                 System.out.println("");
                 break;
                 

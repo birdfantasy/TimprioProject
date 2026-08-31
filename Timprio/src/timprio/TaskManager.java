@@ -16,6 +16,7 @@ import java.util.*;
 public class TaskManager {
     
     private List<Task> tasks = new ArrayList<>();
+    private TaskSorter sorter = new TaskSorter();
     
     //creating tasks
     public void addTask(Task task) {
@@ -25,53 +26,26 @@ public class TaskManager {
     
     //sort by priority
     public void sortPriority(boolean order) {
-        if (order) {
-            tasks.sort((a,c) -> a.getPriority() - c.getPriority());
-        } else {
-            tasks.sort((a,c) -> c.getPriority() - a.getPriority());
-        }
+        sorter.sortPriority(tasks, order);
     }
     
     //sort by time
     public void sortTime(boolean order) {
-        if (order) {
-            tasks.sort((a, b) -> Integer.compare(a.getTime(), b.getTime()));
-        } else {
-            tasks.sort((a, b) -> Integer.compare(b.getTime(), a.getTime()));
-        }
+        sorter.sortTime(tasks, order);
     }
-    
-    
-    //showing tasks
-    public void displayTasks() {
-        System.out.println("Priority: \tTask:\t\tEstimated Time:");
-        for (Task task : tasks) {
-            System.out.println(task);
-        }
-    }
-    
-    public void displayTaskIndex() {
-        //System.out.println("Index\tTask:");
-        int i=0;
-        for (Task task : tasks) {
-            System.out.println(i+". " + task.getName());
-            i++;
-        }
-    }
-    
     
     //remove a task
     public void removeTask(int index) {
         int i=0;
-        for (Task task : tasks) {
-            
-            if (i==index) {
-                tasks.remove(i);
-            }
-            
-            i++; 
-            
+        
+        if (index>=0 && index<tasks.size()) {
+            tasks.remove(index);
         }
+        
+    }
+    
+    public List<Task> getTasks() {
+        return tasks;
     }
     
     //FILE I/O
