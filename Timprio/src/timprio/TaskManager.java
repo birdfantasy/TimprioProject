@@ -48,57 +48,9 @@ public class TaskManager {
         return tasks;
     }
     
-    //FILE I/O
-    public void saveToFile(String fileName) { // File input
-
-        try {
-            PrintWriter writer = new PrintWriter(new FileWriter(fileName));
-
-            for (Task task : tasks) {
-                writer.println(task.getName() + "," +
-                               task.getTime() + "," +
-                               task.getPriority());
-            }
-
-            writer.close();
-
-            System.out.println("Tasks saved successfully.");
-
-        } catch (IOException e) {
-            System.out.println("Error saving file.");
-        }
-    }
-    public void loadFromFile(String fileName) { // File output
-
+    //for File I/O
+    public void clearTasks() {
         tasks.clear();
-
-        try {
-
-            Scanner fileScanner = new Scanner(new File(fileName));
-
-            while (fileScanner.hasNextLine()) {
-
-                String line = fileScanner.nextLine();
-
-                String[] data = line.split(",");
-
-                String name = data[0];
-                int time = Integer.parseInt(data[1]);
-                char priority = data[2].charAt(0);
-
-                Task task = new Task(name, time, priority);
-
-                tasks.add(task);
-            }
-
-            fileScanner.close();
-
-            System.out.println("Tasks loaded successfully.");
-
-        } catch (IOException e) {
-
-            System.out.println("Error loading file.");
-        }
     }
     
 }
