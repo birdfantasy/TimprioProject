@@ -19,8 +19,10 @@ public class Timprio {
     public static void main(String[] args) {
         
         Scanner scan = new Scanner(System.in);
-        TaskManager t = new TaskManager();
-        int input;
+        TaskManager taskManager = new TaskManager();
+        Menu menu = new Menu(scan);
+        InputTask inputTask = new InputTask(scan);
+        TasksDisplay taskDisplay = new TasksDisplay();
         
         /*
         //TESTING TASKS
@@ -30,17 +32,17 @@ public class Timprio {
         */
         
 
-        displayMenu();
+        menu.displayMenu();
         
         
-        input = getInput();
+        int input = menu.getInput();
         
         switch (input) { //ALL OF THESE COULD BE THEIR OWN METHODS
             case 1: // ADD A TASK
                 
                 //making the task
-                Task task = input.createTask();
-                t.addTask(task);
+                Task task = inputTask.createTask();
+                taskManager.addTask(task);
                 
                 System.out.println("");
                 break;
@@ -50,7 +52,7 @@ public class Timprio {
                 
                 int remove;
                 
-                t.displayTaskIndex();
+                taskDisplay.displayTaskIndex(taskManager);
                 
                 //ask for desired index to remove
                 System.out.println("What task would you like to remove?\ninput Index");
@@ -60,8 +62,8 @@ public class Timprio {
                 scan.nextLine();
                 
                 //removeTask(index);
-                t.removeTask(remove);
-                t.displayTasks();
+                taskManager.removeTask(remove);
+                taskDisplay.displayTasks(taskManager);
                 System.out.println("");
                 break;
                 
@@ -69,12 +71,12 @@ public class Timprio {
             case 3: //VIEWING THE TASKS
                 
                 // Load tasks from the file
-                t.loadFromFile("tasks.txt");
+                taskManager.loadFromFile("tasks.txt");
 
                 System.out.println("Tasks loaded from file:");
 
                 // Display the loaded tasks
-                t.displayTasks();
+                taskDisplay.displayTasks(taskManager);
                 
                 break;
                 
@@ -89,13 +91,13 @@ public class Timprio {
                 
                 // sorting
                 if (priorityOrder==1) { //sort by ascending
-                    t.sortPriority(true);
+                    taskManager.sortPriority(true);
                 } else if (priorityOrder==2) { //sort by descending
-                    t.sortPriority(false);
+                    taskManager.sortPriority(false);
                 }
                
                 // displayTasks();
-                t.displayTasks();
+                taskDisplay.displayTasks(taskManager);
                 
                 break;
 
@@ -110,20 +112,20 @@ public class Timprio {
                 
                 //sorting
                 if (timeOrder==1) { // sort by ascending
-                    t.sortTime(false);
+                    taskManager.sortTime(false);
                 } else if (timeOrder==2) { //sort by descending
-                    t.sortTime(true);
+                    taskManager.sortTime(true);
                 }
                 
                 // displayTasks();
-                t.displayTasks();
+                taskDisplay.displayTasks(taskManager);
                 
                 break;
                 
                 
             case 6: //save to file
                 //save method
-                t.saveToFile("tasks.txt");
+                taskManager.saveToFile("tasks.txt");
         
                 System.out.println("Tasks have been saved.\n");
                 break;
