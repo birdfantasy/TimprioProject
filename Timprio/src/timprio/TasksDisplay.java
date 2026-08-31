@@ -11,10 +11,12 @@ import java.util.List;
 public class TasksDisplay {
     
     public void displayTasks(TaskManager manager) {
+        System.out.println("\t   ~~~ SCHEDULE ~~~");
         System.out.println("Priority: \tTask:\t\tEstimated Time:");
         for (Task task : manager.getTasks()) {
             System.out.println(task);
         }
+        System.out.print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
     }
     
     public void displayTaskIndex(TaskManager manager) {

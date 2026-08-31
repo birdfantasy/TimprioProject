@@ -22,7 +22,7 @@ public class Menu {
     public void displayMenu() {
         
         System.out.println();
-        System.out.println("~~~ TIMPRIO ~~~");
+        System.out.println("\t~~~ TIMPRIO ~~~");
         System.out.println("1. I want to add a task");
         System.out.println("2. I have completed a task");
         System.out.println("3. View my tasks");
