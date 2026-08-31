@@ -14,7 +14,7 @@ public class Menu {
     private Scanner scan;
     
     public Menu(Scanner scan) {
-        scan = new Scanner(System.in);
+        this.scan = scan;
     } 
     
     
@@ -33,7 +33,9 @@ public class Menu {
     
     public int getInput() {
         System.out.println("Your Input: ");
-        return scan.nextInt();
+        int input = scan.nextInt();
+        scan.nextLine();
+        return input;
         
     }
     

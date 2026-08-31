@@ -45,6 +45,8 @@ public class Timprio {
                     Task task = inputTask.createTask();
                     taskManager.addTask(task);
 
+                    taskDisplay.displayTasks(taskManager);
+                    fileManager.saveToFile("tasks.txt", taskManager);
                     System.out.println("");
                     break;
 
