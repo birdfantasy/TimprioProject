@@ -36,7 +36,7 @@ public class Timprio {
             menu.displayMenu();
 
 
-            input = menu.getInput();
+            input = menu.getIntInput();
 
             switch (input) {
                 case 1: // ADD A TASK

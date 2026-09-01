@@ -31,7 +31,14 @@ public class Menu {
         System.out.println("6. SAVE \t 7. EXIT");
     }
     
-    public int getInput() {
+    
+    
+    /* NOTE TO SELF
+    IM TRYING TO PREVENT INT ERRORS NOW
+    WHENEVER A NON-INTEGER IS ENTERED
+    */
+    
+    public int getIntInput() {
         System.out.println("Your Input: ");
         int input = scan.nextInt();
         scan.nextLine();
