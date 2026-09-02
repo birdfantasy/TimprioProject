@@ -14,13 +14,21 @@ import java.util.*;
  * @author Fatem
  */
 public class TaskManager {
+    Scanner scan;
     
     private List<Task> tasks = new ArrayList<>();
-    private TaskSorter sorter = new TaskSorter();
+    private TaskSorter sorter;
+    private RemoveTask remover;
+
+    public TaskManager() {
+        this.scan = scan;
+        sorter = new TaskSorter(scan);
+        remover = new RemoveTask(scan);
+    }
     
     //creating tasks
     public void addTask(Task task) {
-        tasks.add(task);
+        tasks.add(task);     
     }
     
     
@@ -36,12 +44,7 @@ public class TaskManager {
     
     //remove a task
     public void removeTask(int index) {
-        int i=0;
-        
-        if (index>=0 && index<tasks.size()) {
-            tasks.remove(index);
-        }
-        
+        remover.removeTask(tasks, index);
     }
     
     public List<Task> getTasks() {

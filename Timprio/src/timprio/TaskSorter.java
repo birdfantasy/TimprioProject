@@ -3,13 +3,48 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package timprio;
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Scanner;
 /**
  *
  * @author Fatem
  */
 public class TaskSorter {
     
+    private Scanner scan;
+    
+    
+    
+    public TaskSorter(Scanner scan) {
+        this.scan = scan;
+    }
+    
+    public int chooseOrder(TaskManager manager) {
+        int order=0;
+        
+        while (true) {
+            
+            if (order==1 || order==2) {
+                break;
+            }
+            
+            if (order==1) { //sort by ascending
+                manager.sortPriority(true);
+            } else if (order==2) { //sort by descending
+                manager.sortPriority(false);
+            }
+            
+            try {
+                order = scan.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input, please 1 or 2:");
+                scan.nextLine();
+            }
+        }
+        
+        return order;
+    }
     
     //sort by priority
     public void sortPriority(List <Task> tasks, boolean order) {

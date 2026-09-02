@@ -23,6 +23,7 @@ public class Timprio {
         Menu menu = new Menu(scan);
         InputTask inputTask = new InputTask(scan);
         RemoveTask removeTask = new RemoveTask(scan);
+        TaskSorter taskSorter = new TaskSorter(scan);
         TasksDisplay taskDisplay = new TasksDisplay();
         FileManager fileManager = new FileManager();
         int input;
@@ -46,9 +47,12 @@ public class Timprio {
                     Task task = inputTask.createTask();
                     taskManager.addTask(task);
 
+                    //displa and save
                     taskDisplay.displayTasks(taskManager);
                     fileManager.saveToFile("tasks.txt", taskManager);
+                    
                     System.out.println("");
+                    
                     break;
 
 
@@ -58,13 +62,15 @@ public class Timprio {
 
                     //ask for desired index to remove
                     System.out.println("What task would you like to remove?\ninput Index");
-                    int remove = removeTask.getRemoveIndex();
-                    //remove that task of desired index
-                    
+                    int remove = removeTask.getRemoveIndex();                    
 
                     //removeTask(index);
                     taskManager.removeTask(remove);
+                    
+                    //display and save
                     taskDisplay.displayTasks(taskManager);
+                    fileManager.saveToFile("tasks.txt", taskManager);
+                    
                     System.out.println("");
                     break;
 
@@ -86,16 +92,9 @@ public class Timprio {
 
                     // choose ascending or descending
                     System.out.println("In what order of priority would you like to sort your tasks?\n1. Ascending\n2. Descending\nUser input: ");
-                    priorityOrder = scan.nextInt();
+                    priorityOrder = taskSorter.chooseOrder(taskManager);
 
-                    // sorting
-                    if (priorityOrder==1) { //sort by ascending
-                        taskManager.sortPriority(true);
-                    } else if (priorityOrder==2) { //sort by descending
-                        taskManager.sortPriority(false);
-                    }
-
-                    // displayTasks();
+                    // display
                     taskDisplay.displayTasks(taskManager);
 
                     break;
@@ -107,16 +106,10 @@ public class Timprio {
 
                     // choose ascending or descending
                     System.out.println("In what order of time would you like to sort your tasks?\n1. Ascending\n2. Descending\nUser input: ");
-                    timeOrder = scan.nextInt();
+                    timeOrder = taskSorter.chooseOrder(taskManager);
 
-                    //sorting
-                    if (timeOrder==1) { // sort by ascending
-                        taskManager.sortTime(false);
-                    } else if (timeOrder==2) { //sort by descending
-                        taskManager.sortTime(true);
-                    }
 
-                    // displayTasks();
+                    // display
                     taskDisplay.displayTasks(taskManager);
 
                     break;
