@@ -4,6 +4,7 @@
  */
 package timprio;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -32,16 +33,22 @@ public class Menu {
     }
     
     
-    
-    /* NOTE TO SELF
-    IM TRYING TO PREVENT INT ERRORS NOW
-    WHENEVER A NON-INTEGER IS ENTERED
-    */
-    
     public int getIntInput() {
+        int input=0;
         System.out.println("Your Input: ");
-        int input = scan.nextInt();
-        scan.nextLine();
+        
+        while (true) {
+            if (input >0) {
+                break;
+            }
+            try {
+                input = scan.nextInt();
+                scan.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input, please try again:");
+                scan.nextLine();
+            }
+        }
         return input;
         
     }
