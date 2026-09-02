@@ -5,6 +5,7 @@
 package timprio;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -19,7 +20,15 @@ public class RemoveTask {
         this.scan = scan;
     }
     
+    
+    public void removeTask(List <Task> tasks, int index) {
+        int i=0;
+        
+        if (index>=0 && index<tasks.size()) {
+            tasks.remove(index);
+        }
 
+    }
     
     public int getRemoveIndex() {
         int remove = -1;
