@@ -22,14 +22,15 @@ public class Timprio {
         TaskManager taskManager = new TaskManager();
         Menu menu = new Menu(scan);
         InputTask inputTask = new InputTask(scan);
+        RemoveTask removeTask = new RemoveTask(scan);
         TasksDisplay taskDisplay = new TasksDisplay();
         FileManager fileManager = new FileManager();
         int input;
         /*
         //TESTING TASKS
-        t.addTask(new Task("make tasks input/output on a txt.file", 40, 'A'));
-        t.addTask(new Task("make a removeTask() function", 120 , 'B'));
-        t.addTask(new Task("writing", 20, 'C'));
+            t.addTask(new Task("test name 1", 40, 'A'));
+            t.addTask(new Task("test name 2", 120 , 'B'));
+            t.addTask(new Task("test name 3", 20, 'C'));
         */
         
         do {
@@ -53,16 +54,13 @@ public class Timprio {
 
                 case 2: // REMOVE A TASK
 
-                    int remove;
-
                     taskDisplay.displayTaskIndex(taskManager);
 
                     //ask for desired index to remove
                     System.out.println("What task would you like to remove?\ninput Index");
-
+                    int remove = removeTask.getRemoveIndex();
                     //remove that task of desired index
-                    remove = scan.nextInt();
-                    scan.nextLine();
+                    
 
                     //removeTask(index);
                     taskManager.removeTask(remove);
