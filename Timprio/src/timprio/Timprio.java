@@ -47,10 +47,9 @@ public class Timprio {
                     Task task = inputTask.createTask();
                     taskManager.addTask(task);
 
-                    //displa and save
+                    //display and save
                     taskDisplay.displayTasks(taskManager);
                     fileManager.saveToFile("tasks.txt", taskManager);
-                    
                     System.out.println("");
                     
                     break;
@@ -58,6 +57,7 @@ public class Timprio {
 
                 case 2: // REMOVE A TASK
 
+                    // display tasks based on index
                     taskDisplay.displayTaskIndex(taskManager);
 
                     //ask for desired index to remove
@@ -70,8 +70,8 @@ public class Timprio {
                     //display and save
                     taskDisplay.displayTasks(taskManager);
                     fileManager.saveToFile("tasks.txt", taskManager);
-                    
                     System.out.println("");
+                    
                     break;
 
 
