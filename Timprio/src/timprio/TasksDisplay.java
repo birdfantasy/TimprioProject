@@ -12,22 +12,39 @@ public class TasksDisplay implements Displayable {
     
     @Override
     public void displayTasks(TaskManager manager) {
-        System.out.println("\t   ~~~ SCHEDULE ~~~");
-        System.out.println("Priority: \tTask:\t\tEstimated Time:");
+        System.out.println("                               ~~~ SCHEDULE ~~~");
+        System.out.println("      Priority                        Task                        Estimated Time:  ");
+        System.out.println("     ---------- ------------------------------------------------ ----------------- ");
         for (Task task : manager.getTasks()) {
-            System.out.println(task);
+            System.out.println("      " +task.getPriority()+"\t\t\t"+task.getName()+"\t\t\t"+task.getTime());
+            //System.out.println(task);
         }
-        System.out.print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
+
     }
     
     @Override
     public void displayTaskIndex(TaskManager manager) {
         //System.out.println("Index\tTask:");
         int i=0;
+        System.out.println("      Index:\t                      Task:");
+        System.out.println("     ---------- ------------------------------------------------");
         for (Task task : manager.getTasks()) {
-            System.out.println(i+". " + task.getName());
+            System.out.println("     "+i+". \t\t\t" + task.getName());
             i++;
         }
     }
+    
+    /*
+        public void displayBasedOnPriority(TaskManager manager, char prio) {
+            System.out.println("\t   ~~~ SCHEDULE ~~~");
+            System.out.println("Priority: \tTask:\t\tEstimated Time:");
+            for (Task task : manager.getTasks()) {
+                if (task.getPriority()==prio) {
+                    System.out.println(task);
+                }
+            }
+            System.out.print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
+        }
+    */
     
 }

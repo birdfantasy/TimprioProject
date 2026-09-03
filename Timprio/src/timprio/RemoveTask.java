@@ -41,7 +41,7 @@ public class RemoveTask {
                 remove = scan.nextInt();
                 scan.nextLine();
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input, please try again:");
+                System.out.println("     Invalid input, please try again:");
                 scan.nextLine();
             }
         }

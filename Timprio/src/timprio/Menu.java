@@ -40,7 +40,7 @@ public class Menu {
     
     public int getIntInput() {
         int input=0;
-        System.out.println("Your Input: ");
+        System.out.println("     Your Input: ");
         
         while (true) {
             if (input >0) {
@@ -50,7 +50,7 @@ public class Menu {
                 input = scan.nextInt();
                 scan.nextLine();
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input, please try again:");
+                System.out.println("     Invalid input, please try again:");
                 scan.nextLine();
             }
         }

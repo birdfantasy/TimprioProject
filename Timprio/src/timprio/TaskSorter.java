@@ -29,7 +29,7 @@ public class TaskSorter implements Sortable{
                 order = scan.nextInt();
                 scan.nextLine();
             } catch (InputMismatchException e) {
-                System.out.print("Invalid input. ");
+                System.out.print("     Invalid input. ");
                 scan.nextLine();
             }
             
@@ -52,7 +52,7 @@ public class TaskSorter implements Sortable{
                     }
                     return order;
                 }
-                default -> System.out.println("Please, 1 or 2:");
+                default -> System.out.println("     Please, 1 or 2:");
             }
             
            

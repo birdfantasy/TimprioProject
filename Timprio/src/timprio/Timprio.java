@@ -52,7 +52,6 @@ public class Timprio {
                     //display and save
                     taskDisplay.displayTasks(taskManager);
                     fileManager.saveToFile("tasks.txt", taskManager);
-                    System.out.println("");
                     menu.returnToMenu();
                 }
                 case 2 -> {
@@ -62,7 +61,7 @@ public class Timprio {
                     taskDisplay.displayTaskIndex(taskManager);
 
                     //ask for desired index to remove
-                    System.out.println("What task would you like to remove?\ninput Index");
+                    System.out.println("     What task would you like to remove?\ninput Index");
                     int remove = removeTask.getRemoveIndex();
                     
                     //removeTask(index);
@@ -82,6 +81,7 @@ public class Timprio {
 
                     // Display the loaded tasks
                     taskDisplay.displayTasks(taskManager);
+                    System.out.println("");
                     menu.returnToMenu();
                 }
                 case 4 -> {
@@ -90,7 +90,7 @@ public class Timprio {
                     int priorityOrder;
 
                     // choose ascending or descending
-                    System.out.println("In what order of priority would you like to sort your tasks?\n1. Ascending\n2. Descending\nUser input: ");
+                    System.out.println("     In what order of priority would you like to sort your tasks?\n          1. Ascending\n          2. Descending\n     User input: ");
                     priorityOrder = taskSorter.chooseOrder(taskManager, 1);
 
                     // display
@@ -103,7 +103,7 @@ public class Timprio {
                     int timeOrder;
 
                     // choose ascending or descending
-                    System.out.println("In what order of time would you like to sort your tasks?\n1. Ascending\n2. Descending\nUser input: ");
+                    System.out.println("     In what order of time would you like to sort your tasks?\n          1. Ascending\n          2. Descending\n     User input: ");
                     timeOrder = taskSorter.chooseOrder(taskManager, 2);
 
                     // display
@@ -116,7 +116,8 @@ public class Timprio {
                     //save method
                     fileManager.saveToFile("tasks.txt", taskManager);
 
-                    System.out.println("Tasks have been saved.\n");
+                    System.out.println("     Tasks have been saved.\n");
+                    menu.returnToMenu();
                 }
                     
                 case 7 -> //EXIT
