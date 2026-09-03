@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author Fatem
  */
-public class TaskSorter {
+public class TaskSorter implements Sortable{
     
     private Scanner scan;
     
@@ -47,6 +47,7 @@ public class TaskSorter {
     }
     
     //sort by priority
+    @Override
     public void sortPriority(List <Task> tasks, boolean order) {
         if (order) {
             tasks.sort((a,c) -> a.getPriority() - c.getPriority());
@@ -56,6 +57,7 @@ public class TaskSorter {
     }
     
     //sort by time
+    @Override
     public void sortTime(List <Task> tasks, boolean order) {
         if (order) {
             tasks.sort((a, b) -> Integer.compare(a.getTime(), b.getTime()));
