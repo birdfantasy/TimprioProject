@@ -29,26 +29,30 @@ public class TaskSorter implements Sortable{
                 order = scan.nextInt();
                 scan.nextLine();
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please. 1 or 2:");
+                System.out.print("Invalid input. ");
                 scan.nextLine();
             }
             
-            if (order==1) { //sort by ascending
-                if (type==1) {
-                    manager.sortPriority(true);
-                } else if (type==2) {
-                    manager.sortTime(true);
+            switch (order) {
+                case 1 -> {
+                    //sort by ascending
+                    if (type==1) {
+                        manager.sortPriority(true);
+                    } else if (type==2) {
+                        manager.sortTime(true);
+                    }
+                    return order;
                 }
-                return order;
-            } else if (order==2) { //sort by descending
-                if (type==1) {
-                    manager.sortPriority(false);
-                } else if (type==2) {
-                    manager.sortTime(false);
+                case 2 -> {
+                    //sort by descending
+                    if (type==1) {
+                        manager.sortPriority(false);
+                    } else if (type==2) {
+                        manager.sortTime(false);
+                    }
+                    return order;
                 }
-                return order;
-            } else {
-                System.out.println("Invalid Input. Please, 1 or 2:");
+                default -> System.out.println("Please, 1 or 2:");
             }
             
            

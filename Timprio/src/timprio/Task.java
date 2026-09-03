@@ -4,8 +4,6 @@
  */
 package timprio;
 
-import java.util.*;
-
 /**
  *
  * @author Fatem
@@ -53,6 +51,7 @@ public abstract class Task {
     }
     
 
+    @Override
     public String toString() {
         return this.getPriority() + "\t\t" + this.getName() + "\t\t" + this.getTime() +"''";
     }

@@ -19,12 +19,13 @@ public class Timprio {
     public static void main(String[] args) {
         
         Scanner scan = new Scanner(System.in);
-        TaskManager taskManager = new TaskManager();
+        
         Menu menu = new Menu(scan);
+        TaskManager taskManager = new TaskManager();
         InputTask inputTask = new InputTask(scan);
         RemoveTask removeTask = new RemoveTask(scan);
-        TaskSorter taskSorter = new TaskSorter(scan);
         TasksDisplay taskDisplay = new TasksDisplay();
+        TaskSorter taskSorter = new TaskSorter(scan);
         FileManager fileManager = new FileManager();
         int input;
         /*
