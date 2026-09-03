@@ -62,8 +62,8 @@ public class Timprio {
 
                     //ask for desired index to remove
                     System.out.println("What task would you like to remove?\ninput Index");
-                    int remove = removeTask.getRemoveIndex();                    
-
+                    int remove = removeTask.getRemoveIndex();
+                    
                     //removeTask(index);
                     taskManager.removeTask(remove);
                     

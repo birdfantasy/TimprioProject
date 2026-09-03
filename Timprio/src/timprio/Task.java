@@ -44,6 +44,7 @@ public abstract class Task {
     }
 
     // Get and set methods for priority
+    public abstract String getType();
     public char getPriority() {
         return priority;
     }
@@ -51,8 +52,6 @@ public abstract class Task {
         this.priority = priority;
     }
     
-    
-    public abstract String getType();
 
     public String toString() {
         return this.getPriority() + "\t\t" + this.getName() + "\t\t" + this.getTime() +"''";
