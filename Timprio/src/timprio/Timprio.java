@@ -93,13 +93,12 @@ public class Timprio {
 
                     // choose ascending or descending
                     System.out.println("In what order of priority would you like to sort your tasks?\n1. Ascending\n2. Descending\nUser input: ");
-                    priorityOrder = taskSorter.chooseOrder(taskManager);
+                    priorityOrder = taskSorter.chooseOrder(taskManager, 1);
 
                     // display
                     taskDisplay.displayTasks(taskManager);
                     System.out.println("");
                     menu.returnToMenu();
-                    scan.nextLine();
                     break;
 
 
@@ -109,12 +108,12 @@ public class Timprio {
 
                     // choose ascending or descending
                     System.out.println("In what order of time would you like to sort your tasks?\n1. Ascending\n2. Descending\nUser input: ");
-                    timeOrder = taskSorter.chooseOrder(taskManager);
+                    timeOrder = taskSorter.chooseOrder(taskManager, 2);
 
                     // display
                     taskDisplay.displayTasks(taskManager);
+                    System.out.println("");
                     menu.returnToMenu();
-                    scan.nextLine();
                     break;
 
 

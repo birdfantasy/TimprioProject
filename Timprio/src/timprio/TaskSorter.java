@@ -20,30 +20,41 @@ public class TaskSorter implements Sortable{
         this.scan = scan;
     }
     
-    public int chooseOrder(TaskManager manager) {
+    public int chooseOrder(TaskManager manager, int type) {
         int order=0;
         
         while (true) {
             
-            if (order==1 || order==2) {
-                break;
+            try {
+                order = scan.nextInt();
+                scan.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please. 1 or 2:");
+                scan.nextLine();
             }
             
             if (order==1) { //sort by ascending
-                manager.sortPriority(true);
+                if (type==1) {
+                    manager.sortPriority(true);
+                } else if (type==2) {
+                    manager.sortTime(true);
+                }
+                return order;
             } else if (order==2) { //sort by descending
-                manager.sortPriority(false);
+                if (type==1) {
+                    manager.sortPriority(false);
+                } else if (type==2) {
+                    manager.sortTime(false);
+                }
+                return order;
+            } else {
+                System.out.println("Invalid Input. Please, 1 or 2:");
             }
             
-            try {
-                order = scan.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input, please 1 or 2:");
-                scan.nextLine();
-            }
+           
         }
         
-        return order;
+        //return order;
     }
     
     //sort by priority
