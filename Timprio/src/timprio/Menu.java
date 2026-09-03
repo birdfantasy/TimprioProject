@@ -32,6 +32,11 @@ public class Menu {
         System.out.println("6. SAVE \t 7. EXIT");
     }
     
+    public void returnToMenu() {
+        System.out.println("Press Enter to reeturn to menu...");
+        scan.nextLine();
+    }
+    
     
     public int getIntInput() {
         int input=0;

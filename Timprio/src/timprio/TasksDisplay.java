@@ -16,7 +16,7 @@ public class TasksDisplay {
         for (Task task : manager.getTasks()) {
             System.out.println(task);
         }
-        System.out.print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
+        System.out.print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
     }
     
     public void displayTaskIndex(TaskManager manager) {

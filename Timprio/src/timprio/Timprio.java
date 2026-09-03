@@ -33,7 +33,7 @@ public class Timprio {
             t.addTask(new Task("test name 2", 120 , 'B'));
             t.addTask(new Task("test name 3", 20, 'C'));
         */
-        
+        fileManager.loadFromFile("tasks.txt", taskManager);
         do {
             menu.displayMenu();
 
@@ -51,7 +51,7 @@ public class Timprio {
                     taskDisplay.displayTasks(taskManager);
                     fileManager.saveToFile("tasks.txt", taskManager);
                     System.out.println("");
-                    
+                    menu.returnToMenu();
                     break;
 
 
@@ -71,6 +71,7 @@ public class Timprio {
                     taskDisplay.displayTasks(taskManager);
                     fileManager.saveToFile("tasks.txt", taskManager);
                     System.out.println("");
+                    menu.returnToMenu();
                     
                     break;
 
@@ -82,7 +83,7 @@ public class Timprio {
 
                     // Display the loaded tasks
                     taskDisplay.displayTasks(taskManager);
-
+                    menu.returnToMenu();
                     break;
 
 
@@ -96,7 +97,8 @@ public class Timprio {
 
                     // display
                     taskDisplay.displayTasks(taskManager);
-
+                    System.out.println("");
+                    menu.returnToMenu();
                     break;
 
 
@@ -108,10 +110,9 @@ public class Timprio {
                     System.out.println("In what order of time would you like to sort your tasks?\n1. Ascending\n2. Descending\nUser input: ");
                     timeOrder = taskSorter.chooseOrder(taskManager);
 
-
                     // display
                     taskDisplay.displayTasks(taskManager);
-
+                    menu.returnToMenu();
                     break;
 
 

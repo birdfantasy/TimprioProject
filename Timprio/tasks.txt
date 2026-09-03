@@ -1,3 +1,4 @@
 test1,45,A
-test2,30,B
-test3,10,C
+test2,56,B
+test3,43,C
+task4,3,A
