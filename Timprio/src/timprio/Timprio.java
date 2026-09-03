@@ -42,8 +42,9 @@ public class Timprio {
             input = menu.getIntInput();
 
             switch (input) {
-                case 1: // ADD A TASK
-
+                case 1 -> {
+                    // ADD A TASK
+                    
                     //making the task
                     Task task = inputTask.createTask();
                     taskManager.addTask(task);
@@ -53,11 +54,10 @@ public class Timprio {
                     fileManager.saveToFile("tasks.txt", taskManager);
                     System.out.println("");
                     menu.returnToMenu();
-                    break;
-
-
-                case 2: // REMOVE A TASK
-
+                }
+                case 2 -> {
+                    // REMOVE A TASK
+                    
                     // display tasks based on index
                     taskDisplay.displayTaskIndex(taskManager);
 
@@ -73,23 +73,20 @@ public class Timprio {
                     fileManager.saveToFile("tasks.txt", taskManager);
                     System.out.println("");
                     menu.returnToMenu();
+                }
+                case 3 -> {
+                    //VIEWING THE TASKS
                     
-                    break;
-
-
-                case 3: //VIEWING THE TASKS
-
                     // Load tasks from the file
                     fileManager.loadFromFile("tasks.txt", taskManager);
 
                     // Display the loaded tasks
                     taskDisplay.displayTasks(taskManager);
                     menu.returnToMenu();
-                    break;
-
-
-                case 4: //SORT BY PRIORITY
-
+                }
+                case 4 -> {
+                    //SORT BY PRIORITY
+                    
                     int priorityOrder;
 
                     // choose ascending or descending
@@ -100,11 +97,9 @@ public class Timprio {
                     taskDisplay.displayTasks(taskManager);
                     System.out.println("");
                     menu.returnToMenu();
-                    break;
-
-
-
-                case 5: //SORT BY TIME
+                }
+                case 5 -> {
+                    //SORT BY TIME
                     int timeOrder;
 
                     // choose ascending or descending
@@ -115,23 +110,19 @@ public class Timprio {
                     taskDisplay.displayTasks(taskManager);
                     System.out.println("");
                     menu.returnToMenu();
-                    break;
-
-
-                case 6: //save to file
+                }
+                case 6 -> {
+                    //save to file
                     //save method
                     fileManager.saveToFile("tasks.txt", taskManager);
 
                     System.out.println("Tasks have been saved.\n");
-                    break;
+                }
                     
-                case 7: //EXIT
+                case 7 -> //EXIT
                     System.out.println("Closing...");
-                    break;
                     
-                default:
-                    System.out.println("Invalid input.");
-                    break;
+                default -> System.out.println("Invalid input.");
 
             } 
         } while (input!=7);
