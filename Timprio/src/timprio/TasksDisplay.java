@@ -8,8 +8,9 @@ import java.util.List;
  *
  * @author Fatem
  */
-public class TasksDisplay {
+public class TasksDisplay implements Displayable {
     
+    @Override
     public void displayTasks(TaskManager manager) {
         System.out.println("\t   ~~~ SCHEDULE ~~~");
         System.out.println("Priority: \tTask:\t\tEstimated Time:");
@@ -19,6 +20,7 @@ public class TasksDisplay {
         System.out.print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
     }
     
+    @Override
     public void displayTaskIndex(TaskManager manager) {
         //System.out.println("Index\tTask:");
         int i=0;
