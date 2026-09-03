@@ -33,7 +33,7 @@ public class Menu {
     }
     
     public void returnToMenu() {
-        System.out.println("Press Enter to reeturn to menu...");
+        System.out.println("Press Enter to return to menu...");
         scan.nextLine();
     }
     

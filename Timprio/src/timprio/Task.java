@@ -12,7 +12,7 @@ import java.util.*;
  */
 
 //git test commment
-public class Task {
+public abstract class Task {
 
     private String name;
     private int time;
@@ -52,7 +52,7 @@ public class Task {
     }
     
     
-    
+    public abstract String getType();
 
     public String toString() {
         return this.getPriority() + "\t\t" + this.getName() + "\t\t" + this.getTime() +"''";

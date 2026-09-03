@@ -42,16 +42,24 @@ public class FileManager {
         try (Scanner fileScanner = new Scanner(new File(fileName))) {
 
             while (fileScanner.hasNextLine()) {
+                
+                Task task;
 
                 String line = fileScanner.nextLine();
 
                 String[] data = line.split(",");
 
                 String name = data[0];
-                int time = Integer.parseInt(data[1]);
+                int tim = Integer.parseInt(data[1]);
                 char priority = data[2].charAt(0);
 
-                Task task = new Task(name, time, priority);
+                if (priority=='A') {
+                    task = new TaskPriorityA(name,tim);
+                } else if (priority=='B') {
+                    task = new TaskPriorityB(name, tim);
+                } else {
+                    task = new TaskPriorityC(name, tim);
+                }
                 manager.addTask(task);
             }
 

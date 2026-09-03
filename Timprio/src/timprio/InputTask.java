@@ -64,7 +64,15 @@ public class InputTask {
         
         
         //making the task
-        return new Task(name, tim, prio);
-            
+        if (prio=='A') {
+            return new TaskPriorityA(name,tim);
+        } else if (prio=='B') {
+            return new TaskPriorityB(name, tim);
+        } else if (prio=='C'){
+            return new TaskPriorityC(name, tim);
+        } else {
+            System.out.println("Something went wrong...");
+            return null;
+        }
     }
 }

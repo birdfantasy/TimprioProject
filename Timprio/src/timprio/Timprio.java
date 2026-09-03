@@ -99,6 +99,7 @@ public class Timprio {
                     taskDisplay.displayTasks(taskManager);
                     System.out.println("");
                     menu.returnToMenu();
+                    scan.nextLine();
                     break;
 
 
@@ -113,6 +114,7 @@ public class Timprio {
                     // display
                     taskDisplay.displayTasks(taskManager);
                     menu.returnToMenu();
+                    scan.nextLine();
                     break;
 
 
