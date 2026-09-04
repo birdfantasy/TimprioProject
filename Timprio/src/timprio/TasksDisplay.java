@@ -13,11 +13,18 @@ public class TasksDisplay implements Displayable {
     @Override
     public void displayTasks(TaskManager manager) {
         System.out.println("                               ~~~ SCHEDULE ~~~");
-        System.out.println("      Priority                        Task                        Estimated Time:  ");
+        System.out.println("      Priority                        Task                        Estimated Time  ");
         System.out.println("     ---------- ------------------------------------------------ ----------------- ");
         for (Task task : manager.getTasks()) {
-            System.out.println("      " +task.getPriority()+"\t\t\t"+task.getName()+"\t\t\t"+task.getTime());
+            
+            System.out.printf("      %-10s %-48s %d''\n", task.getPriority(), task.getName(), task.getTime());
             //System.out.println(task);
+            
+            
+            
+            
+            
+            
         }
 
     }
