@@ -12,14 +12,13 @@ import java.util.Scanner;
  */
 public class Timprio {
 
-    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         Scanner scan = new Scanner(System.in);
-        
+
         Menu menu = new Menu(scan);
         TaskManager taskManager = new TaskManager();
         InputTask inputTask = new InputTask(scan);
@@ -33,18 +32,17 @@ public class Timprio {
             t.addTask(new Task("test name 1", 40, 'A'));
             t.addTask(new Task("test name 2", 120 , 'B'));
             t.addTask(new Task("test name 3", 20, 'C'));
-        */
+         */
         fileManager.loadFromFile("tasks.txt", taskManager);
         do {
             menu.displayMenu();
-
 
             input = menu.getIntInput();
 
             switch (input) {
                 case 1 -> {
                     // ADD A TASK
-                    
+
                     //making the task
                     Task task = inputTask.createTask();
                     taskManager.addTask(task);
@@ -56,17 +54,22 @@ public class Timprio {
                 }
                 case 2 -> {
                     // REMOVE A TASK
-                    
+
                     // display tasks based on index
                     taskDisplay.displayTaskIndex(taskManager);
 
-                    //ask for desired index to remove
-                    System.out.println("     What task would you like to remove?\ninput Index");
+                    //ask for desired index to remove otherwise cancel
+                    System.out.println("     What task would you like to remove?\ninput Index, otherwise -1 to cancel");
                     int remove = removeTask.getRemoveIndex();
-                    
+                    if (remove == -1) {
+                        System.out.println("Cancelling remove task");
+                        menu.returnToMenu();
+                        break;
+                    }
+
                     //removeTask(index);
                     taskManager.removeTask(remove);
-                    
+
                     //display and save
                     taskDisplay.displayTasks(taskManager);
                     fileManager.saveToFile("tasks.txt", taskManager);
@@ -75,7 +78,7 @@ public class Timprio {
                 }
                 case 3 -> {
                     //VIEWING THE TASKS
-                    
+
                     // Load tasks from the file
                     fileManager.loadFromFile("tasks.txt", taskManager);
 
@@ -86,7 +89,7 @@ public class Timprio {
                 }
                 case 4 -> {
                     //SORT BY PRIORITY
-                    
+
                     int priorityOrder;
 
                     // choose ascending or descending
@@ -119,19 +122,18 @@ public class Timprio {
                     System.out.println("     Tasks have been saved.\n");
                     menu.returnToMenu();
                 }
-                    
+
                 case 7 -> //EXIT
                     System.out.println("Closing...");
-                    
-                default -> System.out.println("Invalid input.");
 
-            } 
-        } while (input!=7);
-        
+                default ->
+                    System.out.println("Invalid input.");
+
+            }
+        } while (input != 7);
+
         scan.close();
-        
 
-        
     }
-    
+
 }

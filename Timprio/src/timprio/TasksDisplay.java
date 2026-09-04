@@ -19,11 +19,7 @@ public class TasksDisplay implements Displayable {
             
             System.out.printf("      %-10s %-48s %d''\n", task.getPriority(), task.getName(), task.getTime());
             //System.out.println(task);
-            
-            
-            
-            
-            
+ 
             
         }
 

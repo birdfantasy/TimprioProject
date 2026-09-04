@@ -22,18 +22,18 @@ public class RemoveTask {
     
     
     public void removeTask(List <Task> tasks, int index) {
-        int i=0;
+        int i=1;
         
-        if (index>=0 && index<tasks.size()) {
+        if (index>=1 && index<tasks.size()+1) {
             tasks.remove(index);
         }
 
     }
     
     public int getRemoveIndex() {
-        int remove = -1;
+        int remove = -5;
         while (true) {
-            if (remove>-1) {
+            if (remove>=-1) {
                 break;
             }
                         
